@@ -1,0 +1,6 @@
+export const CREATE_NODE = "CREATE_NODE";
+export const DELETE_NODE = "DELETE_NODE";
+export const CREATE_MEMBER = "CREATE_MEMBER";
+export const DELETE_MEMBER = "DELETE_MEMBER";
+export const CREATE_SUPPORT = "CREATE_SUPPORT";
+export const DELETE_SUPPORT = "DELETE_SUPPORT";
