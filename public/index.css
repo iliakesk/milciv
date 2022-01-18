@@ -215,11 +215,14 @@ a{
 input{
     width:100%;
     text-align: right;
+    
 }
 
 .input-check{
     width:fit-content;
     margin-left:.2rem;
+    background-color:var(--col-dark);
+    border:1px solid black;
 }
 
 
@@ -277,8 +280,6 @@ input{
     border:1px solid var(--col-dark);
     border-radius: 2px;
 }
-
-
 
 .line{
     display:inline-block;
