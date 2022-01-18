@@ -1,0 +1,20 @@
+{
+    "materials": {
+        "Structural Steel": {
+            "density": 7850,
+            "elasticity_modulus": 200000,
+            "poissons_ratio": 0.27,
+            "yield_strength": 260,
+            "ultimate_strength": 410,
+            "class": "steel"
+        },
+        "Aluminium": {
+            "density": 2700,
+            "elasticity_modulus": 69000,
+            "poissons_ratio": 0.32,
+            "yield_strength": 100,
+            "ultimate_strength": 150,
+            "class": "aluminium"
+        }
+    }
+}

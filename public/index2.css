@@ -1,0 +1,174 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-window {
+  display: flex;
+  flex-direction: row;
+  height: 80vh;
+}
+
+.navBar {
+  background-color: rgb(201, 201, 204);
+  height: 15vh;
+}
+
+.logo img {
+  height: 4rem;
+  width: 4rem;
+}
+
+/* edw thelei gia osa einai classname btn kati na garpsw tis prokopis */
+.button {
+  width: 6rem;
+  margin: 1rem;
+}
+
+/* parakatw einai genika gia to class nav-element alla thelei endexomenws gia ta edit help kai auth kati jexwristo */
+/* .edit */
+/* .auth */
+/* .help */
+.nav-element {
+  display:inline-block;
+  margin-left:1rem;
+  color:rgb(68, 145, 145)
+}
+
+/* ELEMENTS */
+
+.elements{
+  display:flex;
+}
+/* 
+
+.input {
+
+}
+
+.details {
+
+}
+
+.element-links {
+
+} */
+
+.element-link {
+  display: inline-block;
+  border: 1px solid rgb(50, 160, 154);
+  border-radius: 4px;
+  padding: 0.2rem;
+  margin: 0.2rem;
+}
+
+.modelling {
+  width: 15vw;
+  padding: 0.5rem;
+  border: 2px solid rgb(67, 67, 88);
+}
+
+/* FOOTER */
+/* 
+.footer {
+
+} */
+
+
+.nodes-form,
+.members-form,
+.select {
+  margin: .5rem;
+}
+
+.nodes-form .input {
+  margin-left: 1rem;
+}
+
+.nodes-form-element {
+  margin: .3rem;
+}
+
+
+
+
+
+
+.canvas {
+  background-color: rgb(10, 10, 10);
+  width: 80vw;
+  border: 2px solid black;
+}
+
+
+/* 
+.nodes-form input.coords,
+select,
+.members-form select.nstart,
+.members-form input.nend {
+  width: 100%;
+} */
+
+
+.sub-elements {
+  border-bottom: 1px solid rgb(50, 160, 154);
+  padding: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* TA PARAKATW TO PRWTO EINAI GIA  NA EXW TOGGLE. SXETIKA KOITAW STO NODES OLD*/
+
+/* 
+.nodeVisible,
+.supportVisible,
+.rigidVisible,
+.elasticVisible,
+#toggle1,
+#toggle2,
+#toggle3,
+#toggle4 {
+  display: none;
+}
+
+#toggle1:checked ~ .nodeVisible,
+#toggle2:checked ~ .supportVisible,
+#toggle3:checked ~ .rigidVisible,
+#toggle4:checked ~ .elasticVisible {
+  display: block;
+} */
