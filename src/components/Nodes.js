@@ -95,6 +95,7 @@ class Nodes extends Component {
     return (
       <div className="form" id="nodes-form">
         <div className="form-section form-section-top-buttons">
+              <label>Node:</label>
               <select id="choose-node" type="text" name="delete-node" onChange={this.renderNodeProperties}> 
                 <option></option>
                 {this.renderListNodes()}
@@ -126,16 +127,22 @@ class Nodes extends Component {
             <div className="coordinates">
                 <div>
                   <label>x:</label>
-                  <input id="firstNode" className="input" type="text" name="x" />
+                  <input id="firstNode" className="input" type="text" name="x" placeholder="m" />
                 </div>
                 <div>
                 <label>y:</label>
-                  <input id="secondNode" className="input" type="text" name="y" />
+                  <input id="secondNode" className="input" type="text" name="y" placeholder="m" />
                 </div>
                 <div>
                 <label>z:</label>
-                  <input id="thirdNode" className="input" type="text" name="z" />
+                  <input id="thirdNode" className="input" type="text" name="z" placeholder="m" />
                 </div>
+                <input
+                  className="btn-modelling-multiple-nodes"
+                  type="button"
+                  value="Arrow"
+                  onClick={this.handleDeleteNode}
+                ></input>
             </div>
         </div>
         <div className="form-section form-section-loads">
@@ -144,72 +151,130 @@ class Nodes extends Component {
               <div className="form-load-inputs-section">
                     <div>
                         <label>Px:</label>
-                        <input id="Px" className="input" type="text" name="x" />
+                          <input id="Px" className="input" type="text" name="x" placeholder="KN" />
+
                     </div>
                     <div>
                         <label>Py:</label>
-                        <input id="Py" className="input" type="text" name="y" />
+                          <input id="Py" className="input" type="text" name="y" placeholder="KN" />
+
                     </div>
                     <div>
                         <label>Pz:</label>
-                        <input id="Pz" className="input" type="text" name="z" />
+                          <input id="Pz" className="input" type="text" name="z" placeholder="KN" />
+
                     </div>
                 </div>
                 <div className="form-load-inputs-section">
                     <div>
                         <label>Mx:</label>
-                        <input id="Mx" className="input" type="text" name="x" />
+                          <input id="Mx" className="input" type="text" name="z" placeholder="KNm" />
+
                     </div>
                     <div>
                         <label>My:</label>
-                        <input id="My" className="input" type="text" name="y" />
+                          <input id="My" className="input" type="text" name="z" placeholder="KNm" />
+
                     </div>
                     <div>
                         <label>Mz:</label>
-                        <input id="Mz" className="input" type="text" name="z" />
+                          <input id="Mz" className="input" type="text" name="z" placeholder="KNm" />
                     </div>
                 </div>
             </div>
         </div>
         <div className="form-section form-section-supports">
             <div className="form-subtitle">Supports</div>
-                  
+              <div className="form-supports-inputs">
+                <div className="form-supports-inputs-section">
+                  <label>Translation</label>
+                    <div className="form-supports-inputs-section-element">
+                        <label>Full support x:</label>
+                        <input id="x" className="input-check" type="checkbox" checked="true" name="x" />
+                    </div>
+                          <input id="x" className="input" type="text" name="x" placeholder="KNm" />
+
+                    <div className="form-supports-inputs-section-element">
+                        <label>Full support y:</label>
+                        <input id="y" className="input-check" type="checkbox" checked="true" name="y" />
+                    </div>
+                          <input id="x" className="input" type="text" name="x" placeholder="KNm" />
+
+                    <div className="form-supports-inputs-section-element">
+                        <label>Full support z:</label>
+                        <input id="z" className="input-check" type="checkbox" checked="true" name="z" />
+                    </div>
+                          <input id="x" className="input" type="text" name="x" placeholder="KNm" />
+
+                </div>
+                <div className="form-supports-inputs-section">
+                  <label>Rotation</label>
+                    <div className="form-supports-inputs-section-element">
+                        <label>Full support x:</label>
+                        <input id="x" className="input-check" type="checkbox" checked="true" name="x" />
+                    </div>
+                          <input id="x" className="input" type="text" name="x" placeholder="KNrad?" />
+
+                    <div className="form-supports-inputs-section-element">
+                        <label>Full support y:</label>
+                        <input id="y" className="input-check" type="checkbox" checked="true" name="y" />
+                    </div>
+                          <input id="x" className="input" type="text" name="x" placeholder="KNrad?" />
+
+                    <div className="form-supports-inputs-section-element">
+                        <label>Full support z:</label>
+                        <input id="z" className="input-check" type="checkbox" checked="true" name="z" />
+                    </div>
+                          <input id="x" className="input" type="text" name="x" placeholder="KNrad?" />
+
+                </div>
+              </div>
         </div>
-        <div className="form-section form-section-spring">
-            <div className="form-subtitle">Spring Constants</div>
-                  
-        </div>
+
         <div className="form-section form-section-displacements">
             <div className="form-subtitle">Initial Displacements</div>
-                  
+            <div className="form-displacements-inputs">
+                <div className="form-displacements-inputs-section">
+                  <label>Translation</label>
+                  <div>
+                        <label>x:</label>
+                          <input id="dx" className="input" type="text" name="dx" placeholder="m" />
+
+                    </div>
+                    <div>
+                        <label>y:</label>
+                        <input id="dy" className="input" type="text" name="dy" placeholder="m" />
+
+                    </div>
+                    <div>
+                        <label>z:</label>
+                          <input id="dz" className="input" type="text" name="dz" placeholder="m" />
+
+                    </div>
+                </div>
+                <div className="form-displacements-inputs-section">
+                  <label>Rotation</label>
+                  <div>
+                        <label>x:</label>
+                          <input id="rdx" className="input" type="text" name="rdx" placeholder="rad" />
+
+                    </div>
+                    <div>
+                        <label>y:</label>
+                          <input id="rdy" className="input" type="text" name="rdy" placeholder="rad" />
+
+                    </div>
+                    <div>
+                        <label>z:</label>
+                          <input id="rdz" className="input" type="text" name="rdz" placeholder="rad" />
+                    </div>
+                </div>
+              </div>      
         </div>
         <input
                     className="btn-modelling" type="submit" name="submit" value="Save" />
         </form>
 
-        {/* <label>Insert nodes</label>
-        <form onSubmit={this.handleCreateNode}>
-          <div className="form-element nodes-form-element">
-            <label>
-              x:
-              <input id="firstNode" className="input" type="text" name="x" />
-            </label>
-          </div>
-          <div className="nodes-form-element">
-            <label>
-              y:
-              <input id="secondNode" className="input" type="text" name="y" />
-            </label>
-          </div>
-          <div className="nodes-form-element">
-            <label>
-              z:
-              <input id="thirdNode" className="input" type="text" name="z" />
-            </label>
-          </div>
-          <input
-            className="btn-modelling" type="submit" name="submit" value="Save" />
-        </form> */}
       </div>
     );
   }
@@ -239,7 +304,7 @@ class Nodes extends Component {
     return (
       
       <div className="model-box">
-          <NavLink to="/nodes" className="form-title">Nodes</NavLink>
+          <div className="form-title">Nodes</div>
           {this.renderInputNodes()}
           {/* {this.renderDelNodes()} */}
           <NavLink to="/members" className="form-title">Members</NavLink>

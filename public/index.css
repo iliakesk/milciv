@@ -126,7 +126,11 @@ a{
     margin:.3rem .3rem 0 .3rem;
     border-radius:4px;
     border:1px solid var(--col-medium2);
+    max-height:100%;
+    overflow-y:scroll;
+    overflow-x: hidden;
 }
+
 
 .form-title{
     display:flex;
@@ -152,18 +156,26 @@ a{
     padding:.2rem;
 }
 
+#nodes-form{
+    margin-right:.3rem;
+}
+
 .form-section-top-buttons{
     display:flex;
     justify-content: space-around;
 }
 
-.node-top-buttons{
-    width:50%;
+.form-section-top-buttons>label{
+    margin-top:.4rem;
 }
 
+.node-top-buttons{
+    width:40%;
+    margin-right:.4rem;
+}
 
 #choose-node{
-    margin-left:.5rem;
+    margin-left:.2rem;
     width:3rem;
     height:30%;
     text-align:center;
@@ -184,16 +196,30 @@ a{
     /* margin-bottom:.5rem; */
 }
 
-.form-load-inputs{
+.form-load-inputs,
+.form-displacements-inputs,
+.form-supports-inputs,
+.form-spring-inputs{
     display:flex;
 }
 
-.form-load-inputs-section{
-    padding:.7rem
+.form-load-inputs-section,
+.form-displacements-inputs-section,
+.form-spring-inputs-section,
+.form-supports-inputs-section{
+    padding:.7rem;
+    font-size:.8rem;
 }
+
 
 input{
     width:100%;
+    text-align: right;
+}
+
+.input-check{
+    width:fit-content;
+    margin-left:.2rem;
 }
 
 
@@ -220,7 +246,7 @@ input{
 .btn-modelling{
     display:inline-block;
     font-size:.9rem;
-    padding:.1rem .5rem;
+    padding:.1rem calc(width/10);
     margin:.1rem;
     text-align: center;
     border:1px solid var(--col-dark);
@@ -244,6 +270,12 @@ input{
 .btn-modelling:hover{
     background-color:var(--col-dark);
     color:white;
+}
+
+.btn-modelling-multiple-nodes{
+    width:5%;
+    border:1px solid var(--col-dark);
+    border-radius: 2px;
 }
 
 

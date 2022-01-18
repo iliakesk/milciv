@@ -147,7 +147,7 @@ class Members extends Component {
     return (
       <div className="model-box">
           <NavLink to="/nodes" className="form-title">Nodes</NavLink>
-          <NavLink to="/members" className="form-title">Members</NavLink>
+          <div className="form-title">Members</div>
         {this.renderInputMembers()}
         {this.renderDelMembers()}
           <NavLink to="/materials" className="form-title">Sections</NavLink>
