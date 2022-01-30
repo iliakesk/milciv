@@ -190,7 +190,7 @@ class Nodes extends Component {
                   <label>Translation</label>
                     <div className="form-supports-inputs-section-element">
                         <label>Full support x:</label>
-                        <input id="x" className="input-check" type="checkbox" checked="true" name="x" />
+                        <input id="x" className="input-check" type="checkbox" name="x" />
                     </div>
                           <input id="x" className="input" type="text" name="x" placeholder="KNm" />
 
