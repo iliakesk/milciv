@@ -5,6 +5,8 @@ import {
   DELETE_MEMBER,
   CREATE_SUPPORT,
   DELETE_SUPPORT,
+  ADD_NODAL_LOAD,
+  DELETE_NODAL_LOAD,
 } from "./types";
 
 
@@ -30,10 +32,20 @@ export const deleteMember = (id) => ({
 
 export const createSupport = (text) => ({
   type: CREATE_SUPPORT,
-  payload: { node: text.supportedNode, values: text.values },
+  payload: { node: text.node, values: text.node_data },
 });
 
 export const deleteSupport = (id) => ({
   type: DELETE_SUPPORT,
   payload:{"id": id},
 });
+
+// export const addNodalLoad = (text) => ({
+//   type: ADD_NODAL_LOAD,
+//   payload:{node: text.node, values: text.load},
+// });
+
+// export const deleteNodalLoad = (text) => ({
+//   type: DELETE_NODAL_LOAD,
+//   payload:{node: text.node, values: text.support},
+// });

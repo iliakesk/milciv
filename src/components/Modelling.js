@@ -5,7 +5,7 @@ import Nodes from "./Nodes";
 import Members from "./Members";
 import Materials from "./Materials";
 import Sections from "./Sections";
-import Nodeprops from "./Nodeprops";
+import Elements from "./Elements";
 
 
 
@@ -17,7 +17,7 @@ const Modelling = () => {
         <Route path='/members' element={<Members/>} />
         <Route path='/materials' element={<Materials />} />
         <Route path='/sections' element={<Sections />} />
-        <Route path='/nodeprops' element={<Nodeprops />} />
+        <Route path='/elements' element={<Elements />} />
       </Routes>
     </div>
   );

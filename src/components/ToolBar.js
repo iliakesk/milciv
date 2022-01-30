@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 
 const ToolBar = () => {
   return (
-      <div class="toolbar">
+      <div className="toolbar">
           <NavLink to="/nodes" className="tool"><img src="spaicon5.png" alt="tool1"></img></NavLink>
           <NavLink to="/members" className="tool"><img src="spaicon5.png" alt="tool1"></img></NavLink>
           <NavLink to="/materials" className="tool"><img src="spaicon6.png" alt="tool1"></img></NavLink>

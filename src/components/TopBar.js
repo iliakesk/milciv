@@ -11,15 +11,15 @@ const TopBar = () => {
       <div className="logo">
         logo
         </div>
-        <div class="navbar">
-            <ul class="navlinks">
-                <li class="navlink">
+        <div className="navbar">
+            <ul className="navlinks">
+                <li className="navlink">
                     <a href="/nodes">home</a>
                 </li>
-                <li class="navlink">
+                <li className="navlink">
                     <a href="/node">about us</a>
                 </li>
-                <li class="navlink">
+                <li className="navlink">
                     <a href="/node">contact</a>
                 </li>
             </ul>
@@ -31,3 +31,6 @@ const TopBar = () => {
 };
 
 export default TopBar;
+
+
+

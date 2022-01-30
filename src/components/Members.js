@@ -31,6 +31,20 @@ class Members extends Component {
     return true;
   };
 
+
+
+  // getAllFields() {
+  //   let coord_fields = ["xcoord", "ycoord", "zcoord"].map((field)=>document.getElementById(field))
+  //   let full_support_fields = ["full-supx", "full-supy", "full-supz", "full-supRx", "full-supRy", "full-supRz"].map((field)=>document.getElementById(field))
+  //   let support_fields = ["supx", "supy", "supz", "supRx", "supRy", "supRz"].map((field)=>document.getElementById(field))
+  //   let displacement_fields = ["dx", "dy", "dz", "rdx", "rdy", "rdz"].map((field)=>document.getElementById(field))
+  //   let load_fields = ["Px", "Py", "Pz", "Mx", "My", "Mz"].map((field)=>document.getElementById(field))
+  //   let isSupport = document.getElementById("is-support");
+  
+  //   return {coord_fields, full_support_fields, support_fields, displacement_fields, load_fields, isSupport}
+  // }
+
+
   handleFields = () => {
     let nstart_input = document.getElementById("nstart");
     let nend_input = document.getElementById("nend");
@@ -49,7 +63,7 @@ class Members extends Component {
     let nodes = this.handleFields();
     let lastMember = this.props.lastMember.id;
     if (nodes) {
-      this.props.createMember({nodes, lastMember:lastMember + 1});
+      this.props.createMember({nodes,member:lastMember, lastMember:lastMember + 1});
     }
   };
 
@@ -68,51 +82,117 @@ class Members extends Component {
   //   }
   // }
 
-  renderNodes() {
+  renderListNodes() {
     return Object.keys(this.props.nodes).map((key) => {
       return <option key={key}>{key}</option>;
     });
   }
 
-  renderMembers() {
+  renderListMembers() {
     return Object.keys(this.props.members).map((key) => {
       return <option key={key}>{key}</option>;
     });
   }
 
+  findMember(){
+    console.log('implement function to find members')
+  }
+
+  handleEditMember(){
+    console.log('implement function to edit members')
+  }
+
   renderInputMembers() {
     return (
-      <div className="members-form">
-        <form onSubmit={this.handleCreateMember}>
-        <div className="members-form-element">
-          <div>
-            Insert members
-          </div>
-          <label>
-            Starting node:
-            <select
-              className="select"
-              id="nstart"
-              type="text"
-              name="start-node">
-              <option></option>
-              {this.renderNodes()}
-            </select>
-          </label>
+      <div className="form" id="nodes-form">
+        <div className="form-section form-section-top-buttons">
+              <label>Member:</label>
+              <select id="node-properties" type="text" name="node-properties" onChange={this.renderNodeProperties}> 
+                <option></option>
+                {this.renderListMembers()}
+              </select>
+              <div className="node-top-buttons">
+                  <input
+                  className="btn-modelling"
+                  type="button"
+                  value="Edit"
+                  onClick={this.handleEditMember}
+                ></input>
+                  <input
+                  className="btn-modelling"
+                  type="button"
+                  value="Delete"
+                  onClick={this.handleDeleteMember}
+                ></input>
+                <input
+                  className="btn-modelling"
+                  type="button"
+                  value="Add new"
+                  //onClick={this.handleDeleteNode}
+                ></input>
+            </div>
         </div>
-        <div className="members-form-element">
-          <label>
-            Ending node:
-            <select className="select" 
-              id="nend" 
-              type="text" 
-              name="end-node">
-              <option></option>
-              {this.renderNodes()}
-            </select>
-          </label>
-          </div>
-          <input type="submit" name="submit" value="Enter member" />
+        <form onSubmit={this.handleCreateMember}>
+            <div className="form-section form-section-new-nodes">
+                <div className="form-subtitle">Add new member</div>
+                <div className="coordinates">
+                  <label>Start:</label>
+                  <select id="nstart" type="text" name="nstart" onChange={this.findMember}> 
+                    <option></option>
+                    {this.renderListNodes()}
+                  </select>
+                  <label>stop:</label>
+                  <select id="nend" type="text" name="nend" onChange={this.findMember}> 
+                    <option></option>
+                    {this.renderListNodes()}
+                  </select>
+
+                </div>
+            </div>
+            <div className="form-section form-section-new-nodes">
+                <div className="form-subtitle">Section</div>
+                <div className="coordinates">
+                  <label>Choose section:</label>
+                  <select id="choose-section" type="text" name="choose-section"> 
+                    <option></option>
+                    {this.renderListMembers()}
+                  </select>
+                </div>
+            </div>
+            <div className="form-section form-section-loads">
+                <div className="form-subtitle">Loads</div>
+                <div className="form-load-inputs">
+                  <div className="form-load-inputs-section">
+                        <div>
+                            <label>Px:</label>
+                              <input id="Px" className="input" type="text" name="Px" placeholder="KN" />
+                        </div>
+                        <div>
+                            <label>Py:</label>
+                              <input id="Py" className="input" type="text" name="Py" placeholder="KN" />
+                        </div>
+                        <div>
+                            <label>Pz:</label>
+                              <input id="Pz" className="input" type="text" name="Pz" placeholder="KN" />
+                        </div>
+                    </div>
+                    <div className="form-load-inputs-section">
+                        <div>
+                            <label>Mx:</label>
+                              <input id="Mx" className="input" type="text" name="Mx" placeholder="KNm" />
+                        </div>
+                        <div>
+                            <label>My:</label>
+                              <input id="My" className="input" type="text" name="My" placeholder="KNm" />
+                        </div>
+                        <div>
+                            <label>Mz:</label>
+                              <input id="Mz" className="input" type="text" name="Mz" placeholder="KNm" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input className="btn-modelling" type="submit" name="submit" value="Save" />
         </form>
       </div>
     );
@@ -147,9 +227,9 @@ class Members extends Component {
     return (
       <div className="model-box">
           <NavLink to="/nodes" className="form-title">Nodes</NavLink>
-          <div className="form-title">Members</div>
-        {this.renderInputMembers()}
-        {this.renderDelMembers()}
+          <NavLink to="/elements" className="form-title">Members</NavLink>
+          {/* <div className="form-title">Members</div> */}
+          {this.renderInputMembers()}
           <NavLink to="/materials" className="form-title">Sections</NavLink>
           <NavLink to="/sections" className="form-title">Materials</NavLink>
       </div>

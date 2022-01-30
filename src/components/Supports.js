@@ -236,7 +236,7 @@ class Supports extends Component {
 
 
 const mapStateToProps = (state, ownProps) => {
-  return { nodes: state.nodes,supports: state.supports };
+  return { nodes: state.nodes};
 };
 
 export default connect(mapStateToProps, { createSupport, deleteSupport })(Supports);
