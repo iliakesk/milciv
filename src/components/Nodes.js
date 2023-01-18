@@ -1,10 +1,10 @@
 import React, { Component, useState } from "react";
 import { createNode, deleteNode, createSupport, deleteSupport} from "../actions";
 import { connect } from "react-redux";
-import {NavLink} from "react-router-dom";
-import { calculate } from "../calculations/createMatrices"
-import { cbrt } from "mathjs";
-import { Spring, animated, useTransition } from 'react-spring'
+// import {NavLink} from "react-router-dom";
+// import { calculate } from "../calculations/createMatrices"
+// import { cbrt } from "mathjs";
+// import { Spring, animated, useTransition } from 'react-spring'
 
 
 class Nodes extends Component {
@@ -19,8 +19,7 @@ class Nodes extends Component {
 
   componentDidMount(){
     this.handleCheckBoxes()
-    let field = document.getElementById("toolbar")
-    field.style="background-color:blue"
+    
     //##################################################### apo edw k katw mono dokimes
     // calculate()
   }

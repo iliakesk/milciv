@@ -17,21 +17,8 @@ const ToolBar = () => {
   // const navigate = useNavigate()
   return (
       <div className="toolbar" id="toolbar">
-        {/* <button className="form-title" onClick = {() => {!nodesOn||(membersOn||sectionsOn||materialsOn)?navigate("/nodes"):navigate("/")
-                                                          setNodesOn(!nodesOn)
-                                                        }}>Nodes</button>
-
-        <button className="form-title" onClick = {() => {!membersOn||(nodesOn||sectionsOn||materialsOn)?navigate("/members"):navigate("/")
-                                                          setMembersOn(!membersOn)
-                                                        }}>Members</button>
-
-        <button className="form-title" onClick = {() => {!sectionsOn||(membersOn||nodesOn||materialsOn)?navigate("/sections"):navigate("/")
-                                                          setSectionsOn(!sectionsOn)
-                                                        }}>Sections</button>
-
-        <button className="form-title" onClick = {() => {!materialsOn||(membersOn||sectionsOn||nodesOn)?navigate("/materials"):navigate("/")
-                                                          setMaterialsOn(!materialsOn)
-                                                        }}>Materials</button> */}
+        
+        
 
 
         <NavLink to="/nodes" className="form-title">Nodes</NavLink>
