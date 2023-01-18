@@ -21,10 +21,10 @@ const ToolBar = () => {
         
 
 
-        <NavLink to="/nodes" className="form-title">Nodes</NavLink>
+        {/* <NavLink to="/nodes" className="form-title">Nodes</NavLink>
         <NavLink to="/members" className="form-title">Members</NavLink>
         <NavLink to="/materials" className="form-title">Sections</NavLink>
-        <NavLink to="/sections" className="form-title">Materials</NavLink>
+        <NavLink to="/sections" className="form-title">Materials</NavLink> */}
       </div>
   );
 };

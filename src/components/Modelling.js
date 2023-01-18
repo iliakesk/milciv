@@ -15,14 +15,15 @@ const Modelling = () => {
   return (
     <div className="modelling">
       
-      <Routes>
+
+      {/* <Routes>
         <Route exact path='/' element={<Overview />} />
         <Route path='/nodes' element={<Nodes/>} />
         <Route path='/members' element={<Members/>} />
         <Route path='/materials' element={<Materials />} />
         <Route path='/sections' element={<Sections />} />
         <Route path='/elements' element={<Elements />} />
-      </Routes>
+      </Routes> */}
     </div>
   );
 };
