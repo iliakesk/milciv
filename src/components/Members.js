@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { createMember, deleteMember } from "../actions";
 import { connect } from "react-redux";
 import {NavLink} from "react-router-dom";
+import { Spring, animated } from 'react-spring'
+
 
 
 class Members extends Component {
@@ -104,6 +106,8 @@ class Members extends Component {
 
   renderInputMembers() {
     return (
+      // <Spring from={{opacity:0}} to={{opacity:100}}>
+        // {styles => <animated.div style={styles}>
       <div className="form" id="nodes-form">
         <div className="form-section form-section-top-buttons">
               <label>Member:</label>
@@ -195,43 +199,41 @@ class Members extends Component {
             <input className="btn-modelling" type="submit" name="submit" value="Save" />
         </form>
       </div>
+      // </animated.div>}
+      // </Spring>
     );
   }
 
   renderDelMembers() {
     return (
-      <div className="members-form">
-        <div>
-          Delete members
-        </div>
-        <select
-          className="select"
-          id="delmember"
-          type="text"
-          name="delete-member">
-          <option></option>
-          {this.renderMembers()}
-        </select>
+          <div className="members-form">
+            <div>
+              Delete members
+            </div>
+            <select
+              className="select"
+              id="delmember"
+              type="text"
+              name="delete-member">
+              <option></option>
+              {this.renderMembers()}
+            </select>
 
-        <input
-          className="favorite"
-          type="button"
-          value="Delete"
-          onClick={this.handleDeleteMember}
-        ></input>
-      </div>
+            <input
+              className="favorite"
+              type="button"
+              value="Delete"
+              onClick={this.handleDeleteMember}
+            ></input>
+          </div>
     );
   }
 
   render() {
     return (
       <div className="model-box">
-          <NavLink to="/nodes" className="form-title">Nodes</NavLink>
-          <NavLink to="/elements" className="form-title">Members</NavLink>
-          {/* <div className="form-title">Members</div> */}
+          
           {this.renderInputMembers()}
-          <NavLink to="/materials" className="form-title">Sections</NavLink>
-          <NavLink to="/sections" className="form-title">Materials</NavLink>
       </div>
     );
   }

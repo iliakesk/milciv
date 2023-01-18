@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import { createSupport, deleteSupport } from "../actions";
 // import { connect } from "react-redux";
 import sample from "./../resources/materials"
+import { Spring, animated } from 'react-spring'
 
 class Materials extends Component {
   constructor(props) {
@@ -150,6 +151,9 @@ class Materials extends Component {
 
   render() {
     return (
+      
+      <Spring from={{marginTop:-500}} to={{marginTop:0}}>
+        {styles => <animated.div style={styles}>
       <div className="materials-form">
           <form onSubmit={this.handleSaveNewMaterial}>
             <label>
@@ -201,6 +205,8 @@ class Materials extends Component {
           className="button" type="submit" name="modify" value="Save as" />
         </form>
       </div>
+      </animated.div>}
+      </Spring>
     );
   }
 }

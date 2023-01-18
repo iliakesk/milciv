@@ -38,7 +38,7 @@ class Load extends Component {
   render() {
     return (
       <button
-        className="button" 
+        className="load-button" 
         onClick={()=>{this.readModel()}}>Load</button>
     );
   }

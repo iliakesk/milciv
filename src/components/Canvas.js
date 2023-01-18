@@ -25,8 +25,9 @@ class Canvas extends Component {
   componentDidMount() {
     this.canvas = document.getElementById("canvas");
     this.renderer.setSize(this.canvas.offsetWidth, this.canvas.offsetHeight);
+    // console.log(this.canvas.offsetHeight, this.canvas.offsetWidth);
     this.canvas.appendChild(this.renderer.domElement);
-
+   
     this.camera = new THREE.PerspectiveCamera(
       45,
       this.canvas.offsetWidth / this.canvas.offsetHeight,

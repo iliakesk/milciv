@@ -1,4 +1,3 @@
-
 /* ---> CSS RESET */
 /* the css reset below is taken from https://www.joshwcomeau.com/css/custom-css-reset/ */
 
@@ -17,55 +16,44 @@
     margin: 0;
     padding:0;  
     box-sizing: border-box;
+    
   }
 
-html, body, .app {
+/* html, body, .app, .main-window {
 height: 100vh;
-/* to min width einai mono gia th diki mou othoni, gia */
-/* ta ypoloipa prepei mallon na ftiajw media queries */
-min-width:1200px;
-min-height:700px;
-}
-/* img, picture, video, canvas, svg {
-display: block;
-max-width: 100%;
+width:100vw;
 } */
+
 input, button, textarea, select {
 font: inherit;
 }
-p, h1, h2, h3, h4, h5, h6 {
-overflow-wrap: break-word;
-}
-/* #root, #__next {
-isolation: isolate;
-} */
+
 a{
     text-decoration: none;
 }
 
 .app{
-    display:flex;
-    flex-direction:column;
-    border:3px solid darkorange;
+    display:grid;
+    grid-template-rows: 10vh 5vh 80vh 5vh;
+    grid-template-columns: 20vw 80vw;
     font-family:sans-serif;
     font-size:.9rem;
-    color:var(--color-dark)
 }
 
 .topbar{
-    height: 10%;
+    grid-area: 1/1/2/3;
     background-color:var(--col-light);
-    border:1px solid yellow;
+    outline:1px solid red;
 }
-
 
 .navbar{
-    border:1px solid red;
+    outline:1px solid red;
+    
     display:flex;
     justify-content: space-between;
-    height:100%;
     font-family: "Roboto", sans-serif;
 }
+
 
 .logolink{
     display:flex;
@@ -127,19 +115,15 @@ a{
     border-radius: 3px;
 }
 
-.login{
-    
-    border:1px solid blue;
-}
 
+/* --------to toolbar einai to component me ta koumpia--------  */
 .toolbar{
     display:flex;
     align-items: center;
-    height:5%;
+    grid-area: 2/1/3/3;
     background-color:var(--col-lighter);
     /* border:1px solid darkorange; */
 }
-
 
 .tool{
     height:100%;
@@ -150,38 +134,38 @@ a{
 .toolbar:nth-child(2){
     margin-left:.5rem;
 }
-
-.toolbar img{
-    height:100%;
-}
+/* ----------telos toolbar----------- */
 
 
-.main-window{
-    height:80%;
-    width:100%;
+
+/* .main-window{
     display:flex;
-}
+} */
 
 .modelling{
-    border:1px solid darkorange;
-    max-width:17vw;
-    min-width:15%;
+    outline:1px solid red;
+    grid-area: 3/1/4/2;
     background-color:var(--col-light);
 }
 
 .model-box{
     margin:.3rem .3rem 0 .3rem;
     border-radius:4px;
-    border:1px solid var(--col-medium2);
-    max-height:100%;
-    overflow-y:scroll;
-    /* overflow-y:hidden; */
-    overflow-x: hidden;
-
     transition:opacity 1s ease-in;
 }
 
+.canvas{
+    outline:3px solid darkorange;
+    grid-area: 3/2/4/3;
+    background-color:var(--col-dark);
+    overflow:hidden;
+}
 
+.footer{
+    grid-area: 4/1/5/3;
+    outline:1px solid blue;
+    width:100%;
+}
 .form-title{
     display:flex;
     justify-content: space-between;
@@ -189,14 +173,14 @@ a{
     background-color:var(--col-dark);
     padding:.2rem .5rem;
     color:white;
-    border:1px solid var(--col-light);
+    /* border:1px solid var(--col-light); */
     border-radius:4px;
 }
 
 .form-subtitle{
     padding:2px .5rem;
     background-color:var(--col-medium3);
-    border:1px solid var(--col-light);
+    /* border:1px solid var(--col-light); */
     color:white;
     border-radius:4px;
 }
@@ -267,99 +251,3 @@ a{
     padding:.7rem;
     font-size:.8rem;
 }
-
-
-input{
-    width:100%;
-    text-align: right;
-    margin:.1rem 0 .3rem 0
-    
-}
-
-.input-check{
-    width:fit-content;
-    margin-left:.2rem;
-    background-color:var(--col-dark);
-    border:1px solid black;
-}
-
-
-.drop-arrow{
-    background-image: url("arrowlight3.png");
-    background-size: cover;
-    border:1px solid var(--col-light);
-    height:1rem;
-    width:1rem;
-    border-radius:2px;
-    transform:rotate(90deg)
-}
-
-/* DYO ENALLAKTIKES GIA TO BTN-MODELLING: */
-
-/* .btn-modelling{
-    font-size:.9rem;
-    padding:.1rem .5rem;
-    line-height:1.5rem;
-    text-align: center;
-    border:1px solid black;
-    border-radius:3px;
-} */
-.btn-modelling{
-    display:inline-block;
-    font-size:.9rem;
-    padding:.1rem calc(width/10);/*lathos? to vgazei sta errors sto developers tools*/
-    margin:.1rem;
-    text-align: center;
-    border:1px solid var(--col-dark);
-    color:var(--color-dark);
-    background-color:var(--col-lighter);
-    border-radius:3px;
-}
-
-#choose-node{
-    display:inline-block;
-    font-size:.9rem;
-    padding:.1rem .5rem;
-    margin:.2rem;
-    text-align: center;
-    border:1px solid var(--col-dark);
-    color:var(--color-dark);
-    background-color:var(--col-lighter);
-    border-radius:3px;
-}
-
-.btn-modelling:hover{
-    background-color:var(--col-dark);
-    color:white;
-}
-
-.btn-modelling-multiple-nodes{
-    width:5%;
-    border:1px solid var(--col-dark);
-    border-radius: 2px;
-}
-
-.line{
-    display:inline-block;
-    height:.5rem;
-    width:60%;
-    left:10%;
-    border-bottom:1px solid rgb(106, 106, 175);
-    margin-bottom:.5rem;
-}
-
-.canvas{
-    border:1px solid darkorange;
-    width:85%;
-    background-color:var(--col-dark);
-}
-
-.footer{
-    height:5%;
-    border:1px solid blue;
-    width:100%;
-}
-
-/* *{
-    background-color:rgba(100,100,100,0.1)
-} */

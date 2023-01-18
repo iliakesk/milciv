@@ -16,8 +16,10 @@ const App = () => {
       <TopBar />
       <ToolBar />
       <div className="main-window">
+      <div className="left-tools"></div>
         <Modelling />
         <Canvas />
+        <div className="right-tools"></div>
       </div>
       </BrowserRouter>
       <Footer/>

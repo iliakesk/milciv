@@ -1,0 +1,362 @@
+
+/* ---> CSS RESET */
+/* the css reset below is taken from https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+/* :root{
+    --col-lighter:rgb(251, 251, 253);
+    --col-light:rgba(215,216,255);
+    --col-light2:rgb(200, 201, 252);
+    --col-medium1:#5885af;
+    --col-medium2:#41729f;
+    --col-medium3:rgb(97, 109, 155);
+    --col-dark:rgb(41,51,92);
+} */
+:root{
+    --col-light1:rgb(234, 232, 252);
+    --col-light2:rgb(184, 184, 197);
+    --col-light3:rgb(144, 143, 155);
+    --col-medium1:rgb(73, 73, 75);
+    --col-medium2:rgb(73, 73, 73);
+    --col-medium2rgba:rgba(73, 73, 73, .4);
+    --col-medium3:rgb(49, 49, 49);
+    --col-dark:rgb(21, 21, 22);
+    --col-green:rgb(45, 104, 45);
+    --col-orange: rgb(255, 168, 62);
+}
+
+
+*, *::before, *::after {
+    margin: 0;
+    padding:0;  
+    box-sizing: border-box;
+  }
+
+html, body, .app, .main-window {
+height: 100vh;
+width:100vw;
+}
+
+
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+}
+input, button, textarea, select {
+font: inherit;
+}
+input{
+    text-align: right;
+}
+label{
+    display:inline-block
+}
+input[type="text"]{
+    text-align: right;
+    background-color:var(--col-medium1);
+    border:1px solid var(--col-medium1);
+    border-radius:3px;
+    color:var(--col-light2)
+}
+
+input[type="button"],
+input[type="submit"],
+select{
+    background-color:var(--col-medium1);
+    border:1px solid var(--col-medium1);
+    border-radius:3px;
+    color:var(--col-light1);
+    padding: .1rem .3rem;
+    margin:0 .3rem
+}
+
+a{
+    text-decoration: none;
+}
+
+.app{
+    display:flex;
+    flex-direction:column;
+    font-family:sans-serif;
+    font-size:.9rem;
+}
+
+/* --------to topbar einai to component tou logo--------  */
+.topbar{
+    height: 10%;
+    background-color:var(--col-light2);
+    outline:1px solid red;
+}
+
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    height:100%;
+    font-family: "Roboto", sans-serif;
+}
+
+.logolink{
+    display:flex;
+    height:100%;
+    
+}
+.logolink div{
+    color:rgb(20, 20, 122);
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logolink span:first-child{
+    font-weight:700;
+    font-size:x-large;
+    margin-bottom: .2rem;
+}
+
+
+.logo{
+    max-height:80%;
+    margin:auto .5rem;
+}
+
+
+.navlinks{
+    display:flex;
+    padding-top:2rem;
+    font-weight:500;
+    font-size:large;
+}
+
+.navlinks ul{
+    display:flex;
+    list-style: none;
+}
+
+.navlinks li{
+    margin: auto 3rem auto 0;
+    padding:.5rem 1rem;
+    border-radius: 3px;
+}
+
+.navlinks li:hover{
+    margin: auto 3rem auto 0;
+    background-color: #c5c5ff;
+    
+}
+
+.load-button{
+    margin:3rem 2rem .5rem .2rem;
+    padding: .3rem 1rem;
+    border-radius: 3px;
+    background-color: bisque;
+}
+
+/* ----------telos topbar----------- */
+
+/* --------to toolbar einai to component me ta koumpia--------  */
+.toolbar{
+    display:flex;
+    /* align-items: center; */
+    height:5%;
+    background-color:var(--col-light1);
+    /* outline:1px solid darkorange; */
+}
+
+.tool{
+    height:100%;
+    margin:.1rem .2rem 0 .1rem;
+    background-color:var(--color-light2)
+}
+
+.toolbar{
+    padding-left:2%;
+}
+
+.form-title{
+    display:flex;
+    position:relative;
+    background-color:var(--col-medium3);
+    padding:.2rem .5rem;
+    color:white;
+    border-bottom:1px solid var(--color-light2)
+}
+/* ----------telos toolbar----------- */
+
+
+.main-window{
+    display:flex;
+    overflow:hidden
+    
+}
+
+.modelling{
+    /* outline:1px solid red; */
+    flex:1 1 0;
+    background-color:var(--col-medium3);
+    color:var(--col-light2);
+    
+}
+
+.model-box{
+    margin:.3rem .3rem 0 .3rem;
+    border-radius:4px;
+    transition:opacity 1s ease-in;
+    max-height:95%;
+    border-bottom:1px solid var(--col-medium2rgba);
+    border-left:1px solid var(--col-medium2rgba);
+}
+.model-box{
+    overflow-y:scroll
+}
+canvas{
+    background:var(--col-light2)
+}
+
+.canvas{
+    flex:5 1 auto;
+    background-color:var(--col-dark);
+    overflow:hidden;
+    border-left:1px solid var(--col-medium1)
+}
+.left-tools,
+.right-tools{
+    height:100%;
+    width:2%;
+    border-left:1px solid var(--col-medium1);
+    border-right:1px solid var(--col-medium1);
+    background-color:var(--col-dark);
+    
+}
+
+input[type=checkbox]{
+    visibility:hidden
+}
+/* .is-support label{ */
+* input[type="checkbox"] + label{
+    background-color:var(--col-medium2);
+    padding:.1rem .5rem;
+    border:1px solid var(--col-medium);
+    border-radius:3px;
+}
+
+
+* input:checked + label{
+    background-color:var(--col-green);
+    color:white
+}
+
+.footer{
+    height:5%;
+    outline:1px solid blue;
+    width:100%;
+}
+
+
+.form-subtitle{
+    padding:2px .5rem;
+    background-color:var(--col-medium3);
+    color:var(--col-light1);
+    border-bottom:1px solid var(--col-medium1);
+    letter-spacing: .05rem;
+    margin-bottom:.5rem
+}
+
+
+.form-section{
+    margin-top:.5rem;
+    width:100%;
+    padding:.2rem;
+    
+}
+.form-section-coordinates{
+    margin-top:.1rem
+}
+
+#nodes-form{
+    margin-right:.3rem;
+}
+
+.form-section-top-buttons{
+    display:flex;
+    justify-content: space-around;
+}
+
+.form-section-top-buttons>label{
+    margin-top:.4rem;
+}
+
+.node-top-buttons{
+    width:30%;
+    margin-right:.4rem;
+}
+.node-top-buttons>input{
+    display:block;
+    width:100%;
+    text-align: center;
+    margin:.2rem 0
+}
+
+#choose-node{
+    margin-left:.2rem;
+    width:3rem;
+    height:30%;
+    text-align:center;
+}
+
+.coordinates{
+    display:flex;
+}
+
+.coordinates>div{
+    background-color:var(--col-medium3);
+    border-radius: 3px;
+    padding-bottom:.5rem;
+    padding-left:.5rem
+}
+.coordinates>div:hover{
+    background-color:var(--col-medium2rgba);
+}
+
+.coordinates input{
+    width:80%;
+    /* margin-left:.5rem; */
+    margin-top:.3rem
+}
+
+.coordinates label{
+    display:block;
+    margin-left:.5rem;
+}
+
+.is-support{
+    margin-left:.55rem
+}
+.node-inputs{
+    display:flex;
+}
+
+.node-inputs-section{
+    padding-right:.7rem;
+    font-size:.8rem;
+    border-left:1px solid var(--col-medium2rgba);
+}
+
+.node-inputs-section input{
+    margin-top:.3rem;
+    margin-left: .5rem;
+}
+.form-section-supports label{
+    margin-left:-.85rem;
+    margin-bottom:.5rem 
+}
+
+.form-section-displacements label,
+.form-section-loads label{
+    display:block;
+    margin:.6rem 0 .1rem .5rem;
+}
+form>input[type="submit"]{
+    margin:1rem;
+    padding:.3rem 1.5rem;
+    background-color: var(--col-orange);
+    color:black
+}

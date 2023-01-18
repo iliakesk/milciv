@@ -8,23 +8,29 @@ import Load from "./Load.js";
 const TopBar = () => {
   return (
     <div className="topbar">
-      <div className="logo">
-        logo
-        </div>
-        <div className="navbar">
-            <ul className="navlinks">
-                <li className="navlink">
-                    <a href="/nodes">home</a>
-                </li>
-                <li className="navlink">
-                    <a href="/node">about us</a>
-                </li>
-                <li className="navlink">
-                    <a href="/node">contact</a>
-                </li>
-            </ul>
-        </div>
-        <Load />
+        <nav className="navbar">
+          <a className="logolink" href="#top">
+            <img className="logo" src="favpng2.png" alt="logo here"></img>
+            <div>
+              <span>milSTAT</span>
+              <span>Design Solutions</span>
+            </div>
+          </a> 
+          <div className="navlinks">
+              <ul>
+                  <li>
+                      <a href="/nodes">Home</a>
+                  </li>
+                  <li>
+                      <a href="/node">About us</a>
+                  </li>
+                  <li>
+                      <a href="/node">Contact</a>
+                  </li>
+              </ul>
+            </div>
+          <Load />
+        </nav>
       </div>
       
   );
