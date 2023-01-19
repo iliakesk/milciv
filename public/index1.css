@@ -30,6 +30,9 @@
     padding:0;  
     box-sizing: border-box;
   }
+  /* *{
+    outline: 1px solid red
+  } */
 
 html, body, .app, .main-window {
 height: 100vh;
@@ -55,7 +58,8 @@ input[type="text"]{
     background-color:var(--col-medium1);
     border:1px solid var(--col-medium1);
     border-radius:3px;
-    color:var(--col-light2)
+    color:var(--col-light2);
+    
 }
 
 input[type="button"],
@@ -84,7 +88,7 @@ a{
 .topbar{
     height: 10%;
     background-color:var(--col-light2);
-    outline:1px solid red;
+    /* outline:1px solid red; */
 }
 
 .navbar{
@@ -157,8 +161,9 @@ a{
     display:flex;
     /* align-items: center; */
     height:5%;
-    background-color:var(--col-light1);
-    /* outline:1px solid darkorange; */
+    background-color:var(--col-medium3);
+    padding-left:2%;
+    
 }
 
 .tool{
@@ -167,9 +172,6 @@ a{
     background-color:var(--color-light2)
 }
 
-.toolbar{
-    padding-left:2%;
-}
 
 .form-title{
     display:flex;
@@ -189,11 +191,26 @@ a{
 }
 
 .modelling{
-    /* outline:1px solid red; */
-    flex:1 1 0;
     background-color:var(--col-medium3);
     color:var(--col-light2);
+    width:20%;
+}
+
+.modelling ul{
+    list-style-type: none;
+    display:flex;
     
+}
+
+.modelling li{
+    background-color:var(--col-medium2);
+    padding:.3rem .5rem;
+    font-size:1.05rem;
+    border-right:1px solid var(--col-light3);
+    border-radius:5px 5px 0 0
+}
+.modelling .active{
+    background-color:var(--col-medium3);
 }
 
 .model-box{
@@ -205,13 +222,19 @@ a{
     border-left:1px solid var(--col-medium2rgba);
 }
 .model-box{
-    overflow-y:scroll
+    overflow-y:scroll;
 }
+.tool-canvas{
+    width:100%;
+    
+}
+
 canvas{
     background:var(--col-light2)
 }
 
 .canvas{
+    height:100%;
     flex:5 1 auto;
     background-color:var(--col-dark);
     overflow:hidden;
@@ -246,7 +269,7 @@ input[type=checkbox]{
 
 .footer{
     height:5%;
-    outline:1px solid blue;
+    /* outline:1px solid blue; */
     width:100%;
 }
 
@@ -265,7 +288,7 @@ input[type=checkbox]{
     margin-top:.5rem;
     width:100%;
     padding:.2rem;
-    
+    /* outline: 1px solid red; */
 }
 .form-section-coordinates{
     margin-top:.1rem
@@ -335,7 +358,7 @@ input[type=checkbox]{
 }
 
 .node-inputs-section{
-    padding-right:.7rem;
+    /* padding-right:.7rem; */
     font-size:.8rem;
     border-left:1px solid var(--col-medium2rgba);
 }

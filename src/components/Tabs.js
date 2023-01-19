@@ -31,18 +31,15 @@ const Tabs = () => {
         return <ActiveTab />
     }
   return (
-    <div className="Tabs">
-      {/* Tab nav */}
+  <div className="modelling">
       <ul className="nav">
         <li className={activeTab === "Nodes" ? "active" : ""} onClick={handleNodes}>Nodes</li>
         <li className={activeTab === "Members" ? "active" : "" } onClick={handleMembers}>Members</li>
         <li className={activeTab === "Materials" ? "active" : ""} onClick={handleMaterials}>Materials</li>
         <li className={activeTab === "Sections" ? "active" : "" } onClick={handleSections}>Sections</li>
       </ul>
-      <div className="modelling">
-        {handleContent(activeTab)}
+      {handleContent(activeTab)}
       </div>
-    </div>
   );
 };
 

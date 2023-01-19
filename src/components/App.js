@@ -9,15 +9,21 @@ import Tabs from "./Tabs";
 import Footer from "./Footer";
 
 const App = () => {
+
+
   return (
     <div className="app">
       
       <TopBar />
-      <ToolBar />
+     
       <div className="main-window">
-      <div className="left-tools"></div>
+        <div className="left-tools"></div>
+        
         <Tabs />
-        <Canvas />
+        <div className="tool-canvas">
+          <ToolBar />
+          <Canvas />
+        </div>
         <div className="right-tools"></div>
       </div>
       <Footer/>

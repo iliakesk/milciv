@@ -20,8 +20,6 @@ class Nodes extends Component {
   componentDidMount(){
     this.handleCheckBoxes()
     
-    //##################################################### apo edw k katw mono dokimes
-    // calculate()
   }
 
   clearValues(arr) {
@@ -247,10 +245,6 @@ class Nodes extends Component {
   renderInputNodes() {
 
     return (
-      
-      // <Spring from={{marginTop:-500}} to={{marginTop:0}}>
-      // <Spring from={{opacity:0}} to={{opacity:100}}>
-        // {styles => <animated.div style={styles}>
           <div className="form" id="nodes-form">
             <div className="form-section form-section-top-buttons">
                   <label>Node:</label>
@@ -393,12 +387,11 @@ class Nodes extends Component {
                     </div>
                 </div>
             </div>
+            
             <input className="btn-modelling" type="submit" name="submit" value="Save" />
             </form>
 
           </div>
-      // </animated.div>}
-      // </Spring>
     );
   }
 
