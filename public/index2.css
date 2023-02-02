@@ -1,174 +1,508 @@
-* {
-  padding: 0;
+
+/* ---> CSS RESET */
+/* the css reset below is taken from https://www.joshwcomeau.com/css/custom-css-reset/ */
+
+/* :root{
+    --col-lighter:rgb(251, 251, 253);
+    --col-light:rgba(215,216,255);
+    --col-light2:rgb(200, 201, 252);
+    --col-medium1:#5885af;
+    --col-medium2:#41729f;
+    --col-medium3:rgb(97, 109, 155);
+    --col-dark:rgb(41,51,92);
+} */
+:root{
+  --col-light1:rgb(234, 232, 252);
+  --col-light2:rgb(184, 184, 197);
+  --col-light3:rgb(144, 143, 155);
+  --col-medium1:rgb(104, 104, 107);
+  --col-medium2:rgb(73, 73, 73);
+  --col-medium2rgba:rgba(73, 73, 73, .4);
+  --col-medium3:rgb(49, 49, 49);
+  --col-dark1:rgb(32, 32, 32);
+  --col-dark2:rgb(21, 21, 22);
+  --col-green:rgb(45, 104, 45);
+  --col-red:rgb(105, 41, 38);
+  --col-orange: rgb(255, 168, 62);
+}
+/* *{
+  outline: 1px solid red
+} */
+
+/* ----------     FOR ALL ELEMENTS ---------------------*/
+
+*, *::before, *::after {
   margin: 0;
-  text-decoration: none;
-  list-style: none;
+  padding:0;  
   box-sizing: border-box;
+  font: inherit;
 }
 
 
+/* mono to layout */
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.app{
+  display:flex;
+  flex-direction:column;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.topbar{
+  flex:2 0 5rem;
+  background-color:var(--col-light2);
 }
 
+.main-window{
+  display:flex;
+  flex:7 1 2000px;
+  overflow:hidden
+}
 
-.app {
-  display: flex;
+.footer{
+  flex:1 0 2rem;
+  width:100%;
+}
+
+/* telos to layout */
+
+img, picture, video, canvas, svg {
+display: block;
+max-width: 100%;
+}
+
+a{
+  text-decoration: none;
+}
+
+input,
+select,
+textarea{
+  border:0;
+  border-radius:3px;
+  background-color:var(--col-medium2);
+  color:var(--col-light2);
+}
+
+.hover:hover{
+  background-color:var(--col-medium1);
+}
+
+input[type="text"]{
+  text-align: right;
+  line-height: 1.6em;
+  padding-right:.5em
+}
+
+input[type="text"]:focus-visible{
+  outline:none;
+}
+
+.form::-webkit-scrollbar {
+  width: 32px;
+  outline:3px solid red
+}
+.form::-webkit-scrollbar-track {
+  background: orange;
+}
+
+/* --------to topbar einai to component tou logo--------  */
+
+
+.navbar{
+  display:flex;
+  justify-content: space-between;
+  height:100%;
+  font-family: "Roboto", sans-serif;
+}
+
+.logolink{
+  display:flex;
+  height:100%;
+  
+}
+.logolink div{
+  color:rgb(20, 20, 122);
+  display:flex;
   flex-direction: column;
+  justify-content: center;
 }
 
-.main-window {
-  display: flex;
-  flex-direction: row;
-  height: 80vh;
+.logolink span:first-child{
+  font-weight:700;
+  font-size:x-large;
+  margin-bottom: .2rem;
 }
 
-.navBar {
-  background-color: rgb(201, 201, 204);
-  height: 15vh;
+
+.logo{
+  max-height:10px;
+  margin:auto .5rem;
 }
 
-.logo img {
-  height: 4rem;
-  width: 4rem;
+
+.navlinks{
+  display:flex;
+  padding-top:2rem;
+  font-weight:500;
+  font-size:large;
 }
 
-/* edw thelei gia osa einai classname btn kati na garpsw tis prokopis */
-.button {
-  width: 6rem;
-  margin: 1rem;
+.navlinks ul{
+  display:flex;
+  list-style: none;
 }
 
-/* parakatw einai genika gia to class nav-element alla thelei endexomenws gia ta edit help kai auth kati jexwristo */
-/* .edit */
-/* .auth */
-/* .help */
-.nav-element {
-  display:inline-block;
-  margin-left:1rem;
-  color:rgb(68, 145, 145)
+.navlinks li{
+  margin: auto 3rem auto 0;
+  padding:.5rem 1rem;
+  border-radius: 3px;
 }
 
-/* ELEMENTS */
+.navlinks li:hover{
+  margin: auto 3rem auto 0;
+  background-color: #c5c5ff;
+  
+}
 
-.elements{
+.load-button{
+  margin:3rem 2rem .5rem .2rem;
+  padding: .3rem 1rem;
+  border-radius: 3px;
+  background-color: bisque;
+}
+
+/* ----------telos topbar----------- */
+
+/* --------to toolbar einai to component me ta koumpia--------  */
+/* LOGIKA DEN THA TO EXW */
+
+.toolbar{
+  display:flex;
+  height:5vh;
+  background-color:var(--col-medium3);
+  padding-left:2%;
+  
+}
+
+.tool{
+  height:100%;
+  margin:.1rem .2rem 0 .1rem;
+  background-color:var(--color-light2)
+}
+
+
+.form-title{
+  display:flex;
+  position:relative;
+  background-color:var(--col-medium3);
+  padding:.2rem .5rem;
+  color:white;
+  border-bottom:1px solid var(--color-light2)
+}
+/* ----------    end of TOOLBAR    ----------- */
+
+
+
+
+/* ----------    TABS    ----------- */
+.modelling{
+  background-color:var(--col-medium3);
+  color:var(--col-light2);
+  width:20%;
+  max-height:85vh
+}
+
+
+.modelling ul{
+  list-style-type: none;
+  display:flex;
+  
+}
+
+.modelling li{
+  background-color:var(--col-medium2);
+  padding:.3rem .5rem;
+  font-size:1.05rem;
+  border-right:1px solid var(--col-light3);
+  border-radius:5px 5px 0 0;
+  cursor:default
+}
+
+.modelling .active{
+  background-color:var(--col-medium3);
+}
+
+/* ----------    end of TABS    ----------- */
+
+/* ----------    DATA BOX    ----------- */
+
+.model-box{
+  margin:.3rem;
+  padding:.2rem;
+  border-radius:4px;
+  transition:opacity 1s ease-in;
+  max-height:95%;
+  border-bottom:1px solid var(--col-medium2rgba);
+  border-left:1px solid var(--col-medium2rgba);
+  overflow-y:scroll;
+  resize:horizontal
+}
+
+.form-section{
+  margin-top:.5rem;
+  width:100%;
+  padding:.2rem;
+  border:1px solid var(--col-medium2rgba);
+  /* outline: 1px solid red; */
+}
+
+.form-subtitle{
+  margin:.2rem 0 .5rem .3rem;
+  background-color:var(--col-medium3);
+  color:var(--col-light1);
+  border-bottom:1px solid var(--col-medium2);
+  letter-spacing: .05rem;
+  width:80%
+}
+
+
+
+.node-inputs{
   display:flex;
 }
-/* 
 
-.input {
-
+.node-inputs-section{
+  font-size:.8rem;
+  border-left:1px solid var(--col-medium2rgba);
+  padding-right:.3em
 }
 
-.details {
-
+.node-inputs-section input{
+  margin-bottom:.3rem;
+  margin-left: .5rem;
 }
 
-.element-links {
+/* mono gia top buttons */
 
+
+.form-section-top-buttons{
+  display:flex;
+  justify-content: space-around;
+}
+
+.form-section-top-buttons>label{
+  margin-top:.4rem;
+}
+
+.node-top-buttons{
+  width:30%;
+  margin-right:.4rem;
+}
+.node-top-buttons>input{
+  display:block;
+  width:100%;
+  text-align: center;
+  margin:.2rem 0
+}
+
+#choose-node,
+#choose-member{
+  margin:.5rem 0 0 .1rem;
+  width:3rem;
+  height:30%;
+  text-align:center;
+}
+
+/* mono gia coordinates */
+
+.coordinates{
+  display:flex;
+}
+
+.coordinates>div{
+  background-color:var(--col-medium3);
+  border-radius: 3px;
+  padding-bottom:.5rem;
+  padding-left:.5rem
+}
+/* .coordinates>div:hover{
+  background-color:var(--col-medium2rgba);
 } */
 
-.element-link {
+.coordinates input{
+  width:80%;
+  margin-top:.3rem
+}
+
+.coordinates label{
+  display:block;
+  margin-left:.5rem;
+}
+
+
+/* mono gia supports section */
+
+.is-support{
+  padding:.5rem
+}
+
+.check-input{
+  display:flex;
+  align-items: center;
+  padding:.6rem 0 .3rem 0
+}
+
+* input[type="checkbox"] + label{
+  background-color:var(--col-medium2);
+  padding:.2em .6em;
+  border-radius:3px;
+}
+
+* input[type="checkbox"]:enabled + label:hover{
+  background-color:var(--col-medium1);
+}
+
+* input:checked + label{
+  background-color:var(--col-dark1);
+  color:var(--col-light2)
+}
+
+input[type=checkbox]{
+  visibility:hidden
+}
+
+
+.node-inputs input[type=checkbox]{
+  visibility:visible;
+  display: grid;
+  place-content: center start;
+  appearance:none;
+  background-color: var(--col-medium2);
+  font: inherit;
+  color: var(--col-dark1);
+  width: 2.3em;
+  height: 1.2em;
+  border: 0.01em solid var(--col-medium2rgba);
+  border-radius: 3em;
+  transform: translateY(-0.075em);
+  margin:.1rem 0 0 .5rem
+}
+
+.node-inputs input[type=checkbox]:checked{
+  place-content: center end;
+  color: var(--col-dark1);
+}
+
+.node-inputs input[type=checkbox]::before{
+  content:"";
   display: inline-block;
-  border: 1px solid rgb(50, 160, 154);
-  border-radius: 4px;
-  padding: 0.2rem;
-  margin: 0.2rem;
+  visibility:visible;
+  background-color: var(--col-light3);
+  font: inherit;
+  color: var(--col-light3);
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 5em;
+  transform: translate(-0.74em,-0.06em);
+  transition: 120ms transform ease-in-out;
+  margin:.1rem 0 0 .5rem
 }
 
-.modelling {
-  width: 15vw;
-  padding: 0.5rem;
-  border: 2px solid rgb(67, 67, 88);
+.node-inputs input[type=checkbox]:checked::before{
+  background-color: var(--col-dark1);
+  transform: translate(0.1em,-0.06em);
+  transition: 120ms transform ease-in-out;
 }
 
-/* FOOTER */
+/* ayta prepei na ta kanw na allazoyn sto hover mono an einai active */
+input[type=checkbox]:enabled:hover{
+  background-color:var(--col-medium1);
+}
+
+
+.form-section-supports label{
+  margin-left:.35rem;
+}
+
+/* mono gia displacements kai loads section */
+
+.form-section-displacements label,
+.form-section-loads label{
+    display:block;
+    margin:.6rem 0 .1rem .5rem;
+}
+
+
+/* mono gia submit button */
+form>input[type="submit"]{
+  margin:1rem;
+  padding:.3rem 1.5rem;
+  background-color: var(--col-orange);
+  color:black
+}
+
+/* mono gia members */
+
+
+#choose-member{
+  margin:.5rem 0 0 .1rem;
+  width:3rem;
+  height:30%;
+  text-align:center;
+}
+
+.form-members select{
+  width:3rem
+}
 /* 
-.footer {
-
+.form-members .coordinates label{
+  margin-right:1rem
 } */
 
 
-.nodes-form,
-.members-form,
-.select {
-  margin: .5rem;
-}
-
-.nodes-form .input {
-  margin-left: 1rem;
-}
-
-.nodes-form-element {
-  margin: .3rem;
-}
 
 
+/* ----------    end of DATA BOX    ----------- */
 
 
+/* ----------    CANVAS    ----------- */
 
 
-.canvas {
-  background-color: rgb(10, 10, 10);
-  width: 80vw;
-  border: 2px solid black;
-}
-
-
-/* 
-.nodes-form input.coords,
-select,
-.members-form select.nstart,
-.members-form input.nend {
-  width: 100%;
-} */
-
-
-.sub-elements {
-  border-bottom: 1px solid rgb(50, 160, 154);
-  padding: 0.2rem;
-  margin-bottom: 1rem;
+.tool-canvas{
+    width:100%;
 }
 
 
 
-
-
-
-
-
-
-
-
-
-/* TA PARAKATW TO PRWTO EINAI GIA  NA EXW TOGGLE. SXETIKA KOITAW STO NODES OLD*/
-
-/* 
-.nodeVisible,
-.supportVisible,
-.rigidVisible,
-.elasticVisible,
-#toggle1,
-#toggle2,
-#toggle3,
-#toggle4 {
-  display: none;
+.canvas{
+  height:100%;
+  flex:5 1 auto;
+  background-color:var(--col-dark1);
+  overflow:hidden;
+  border-left:1px solid var(--col-medium2)
 }
 
-#toggle1:checked ~ .nodeVisible,
-#toggle2:checked ~ .supportVisible,
-#toggle3:checked ~ .rigidVisible,
-#toggle4:checked ~ .elasticVisible {
-  display: block;
-} */
+
+  /* ----------    end of CANVAS    ----------- */
+
+
+/* ----------    LEFT - RIGHT TOOLS    ----------- */
+
+.left-tools,
+.right-tools{
+    height:100%;
+    width:2%;
+    border-left:1px solid var(--col-medium2);
+    border-right:1px solid var(--col-medium2);
+    background-color:var(--col-dark1);
+    
+}
+
+/* ----------    end of LEFT - RIGHT TOOLS    ----------- */
+
+
+/* ----------    FOOTER    ----------- */
+
+
+
+/* ----------    end of FOOTER    ----------- */
+

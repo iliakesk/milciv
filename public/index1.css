@@ -50,9 +50,9 @@ font: inherit;
 input{
     text-align: right;
 }
-label{
+/* label{
     display:inline-block
-}
+} */
 input[type="text"]{
     text-align: right;
     background-color:var(--col-medium1);
@@ -187,7 +187,6 @@ a{
 .main-window{
     display:flex;
     overflow:hidden
-    
 }
 
 .modelling{
@@ -207,8 +206,10 @@ a{
     padding:.3rem .5rem;
     font-size:1.05rem;
     border-right:1px solid var(--col-light3);
-    border-radius:5px 5px 0 0
+    border-radius:5px 5px 0 0;
+    cursor:default
 }
+
 .modelling .active{
     background-color:var(--col-medium3);
 }
@@ -250,10 +251,14 @@ canvas{
     
 }
 
+.check-input{
+    display:flex
+}
+
 input[type=checkbox]{
     visibility:hidden
 }
-/* .is-support label{ */
+
 * input[type="checkbox"] + label{
     background-color:var(--col-medium2);
     padding:.1rem .5rem;
@@ -266,10 +271,18 @@ input[type=checkbox]{
     background-color:var(--col-green);
     color:white
 }
+/* 
+.checkbox{
+    outline:1px solid blue;
+    height:1rem;
+    width:2rem;
+}
+
+
+
 
 .footer{
     height:5%;
-    /* outline:1px solid blue; */
     width:100%;
 }
 
@@ -288,17 +301,16 @@ input[type=checkbox]{
     margin-top:.5rem;
     width:100%;
     padding:.2rem;
-    /* outline: 1px solid red; */
 }
 .form-section-coordinates{
     margin-top:.1rem
-}
+} */
 
 #nodes-form{
     margin-right:.3rem;
 }
 
-.form-section-top-buttons{
+/* .form-section-top-buttons{
     display:flex;
     justify-content: space-around;
 }
@@ -341,35 +353,35 @@ input[type=checkbox]{
 
 .coordinates input{
     width:80%;
-    /* margin-left:.5rem; */
     margin-top:.3rem
 }
 
 .coordinates label{
     display:block;
     margin-left:.5rem;
-}
+} */
 
 .is-support{
     margin-left:.55rem
 }
-.node-inputs{
+/* .node-inputs{
     display:flex;
-}
+} */
 
 .node-inputs-section{
-    /* padding-right:.7rem; */
     font-size:.8rem;
     border-left:1px solid var(--col-medium2rgba);
 }
 
 .node-inputs-section input{
-    margin-top:.3rem;
+    margin-bottom:.3rem;
     margin-left: .5rem;
 }
+
+
 .form-section-supports label{
     margin-left:-.85rem;
-    margin-bottom:.5rem 
+    margin-top:.5rem 
 }
 
 .form-section-displacements label,
@@ -383,3 +395,15 @@ form>input[type="submit"]{
     background-color: var(--col-orange);
     color:black
 }
+
+#noshow{
+    width:0;
+    height:0;
+    outline: none;
+    background-color:rgba(0,0,0,0);
+    border-color:rgba(0,0,0,0)
+}
+/* #noshow:focus,
+#noshow:focus-visible{
+    border:0
+} */

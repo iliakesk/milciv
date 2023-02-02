@@ -62,6 +62,7 @@ class Members extends Component {
 
   handleCreateMember = (e) => {
     e.preventDefault();
+    
     let nodes = this.handleFields();
     let lastMember = this.props.lastMember.id;
     if (nodes) {
@@ -104,49 +105,50 @@ class Members extends Component {
     console.log('implement function to edit members')
   }
 
+
+
   renderInputMembers() {
     return (
-      // <Spring from={{opacity:0}} to={{opacity:100}}>
-        // {styles => <animated.div style={styles}>
-      <div className="form" id="nodes-form">
+      
+      <div className="form" id="members-form">
         <div className="form-section form-section-top-buttons">
               <label>Member:</label>
-              <select id="node-properties" type="text" name="node-properties" onChange={this.renderNodeProperties}> 
+              <select className="hover"  id="choose-member" type="text" name="choose-member" onChange={this.renderNodeProperties}> 
                 <option></option>
                 {this.renderListMembers()}
               </select>
               <div className="node-top-buttons">
                   <input
-                  className="btn-modelling"
+                  className="btn-modelling hover"
                   type="button"
                   value="Edit"
                   onClick={this.handleEditMember}
                 ></input>
                   <input
-                  className="btn-modelling"
+                  className="btn-modelling hover"
                   type="button"
                   value="Delete"
                   onClick={this.handleDeleteMember}
                 ></input>
                 <input
-                  className="btn-modelling"
+                  className="btn-modelling hover"
                   type="button"
                   value="Add new"
                   //onClick={this.handleDeleteNode}
                 ></input>
             </div>
         </div>
-        <form onSubmit={this.handleCreateMember}>
+        <form className="form-members" onSubmit={this.handleCreateMember}>
             <div className="form-section form-section-new-nodes">
                 <div className="form-subtitle">Add new member</div>
                 <div className="coordinates">
                   <label>Start:</label>
-                  <select id="nstart" type="text" name="nstart" onChange={this.findMember}> 
+                  <select id="nstart" name="nstart" onChange={this.findMember}> 
                     <option></option>
                     {this.renderListNodes()}
                   </select>
-                  <label>stop:</label>
-                  <select id="nend" type="text" name="nend" onChange={this.findMember}> 
+                  <label>End:</label>
+                  <select id="nend" name="nend" onChange={this.findMember}> 
                     <option></option>
                     {this.renderListNodes()}
                   </select>
@@ -165,42 +167,36 @@ class Members extends Component {
             </div>
             <div className="form-section form-section-loads">
                 <div className="form-subtitle">Loads</div>
-                <div className="form-load-inputs">
-                  <div className="form-load-inputs-section">
-                        <div>
-                            <label>Px:</label>
-                              <input id="Px" className="input" type="text" name="Px" placeholder="KN" />
-                        </div>
-                        <div>
-                            <label>Py:</label>
-                              <input id="Py" className="input" type="text" name="Py" placeholder="KN" />
-                        </div>
-                        <div>
-                            <label>Pz:</label>
-                              <input id="Pz" className="input" type="text" name="Pz" placeholder="KN" />
-                        </div>
+                <div className="node-inputs">
+                  <div className="node-inputs-section">
+                        
+                      <label>Px:</label>
+                      <input className="hover" id="Px" type="text" name="Px" placeholder="KN" />
+                  
+                      <label>Py:</label>
+                      <input className="hover" id="Py" type="text" name="Py" placeholder="KN" />
+                  
+                      <label>Pz:</label>
+                      <input className="hover" id="Pz" type="text" name="Pz" placeholder="KN" />
+                        
                     </div>
-                    <div className="form-load-inputs-section">
-                        <div>
-                            <label>Mx:</label>
-                              <input id="Mx" className="input" type="text" name="Mx" placeholder="KNm" />
-                        </div>
-                        <div>
-                            <label>My:</label>
-                              <input id="My" className="input" type="text" name="My" placeholder="KNm" />
-                        </div>
-                        <div>
-                            <label>Mz:</label>
-                              <input id="Mz" className="input" type="text" name="Mz" placeholder="KNm" />
-                        </div>
+                    <div className="node-inputs-section">
+                        
+                      <label>Mx:</label>
+                      <input className="hover" id="Mx" type="text" name="Mx" placeholder="KNm" />
+                  
+                      <label>My:</label>
+                      <input className="hover" id="My" type="text" name="My" placeholder="KNm" />
+                  
+                      <label>Mz:</label>
+                      <input className="hover" id="Mz" type="text" name="Mz" placeholder="KNm" />
+                        
                     </div>
                 </div>
             </div>
             <input className="btn-modelling" type="submit" name="submit" value="Save" />
         </form>
       </div>
-      // </animated.div>}
-      // </Spring>
     );
   }
 

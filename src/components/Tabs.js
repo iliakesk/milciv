@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Route, Routes, NavLink, Navigate, useNavigate } from "react-router-dom";
+// import Nodes1 from "./Nodes1";
 import Nodes from "./Nodes";
 import Members from "./Members";
 import Materials from "./Materials";
 import Sections from "./Sections";
-import Elements from "./Elements";
-import Overview from "./Overview";
 
 
 
 
 const Tabs = () => {
     const components = {
+        // Nodes1,
         Nodes,
         Members,
         Materials,
@@ -19,8 +19,9 @@ const Tabs = () => {
     };
 
 
-    const [activeTab, setActiveTab] = useState("Nodes");
+    const [activeTab, setActiveTab] = useState("Members");
 
+    // const handleNodes1 = () => {setActiveTab("Nodes1");};
     const handleNodes = () => {setActiveTab("Nodes");};
     const handleMembers = () => {setActiveTab("Members");};
     const handleMaterials = () => {setActiveTab("Materials");};
@@ -33,8 +34,11 @@ const Tabs = () => {
   return (
   <div className="modelling">
       <ul className="nav">
+        {/* <li className={activeTab === "Nodes1" ? "active" : ""} onClick={handleNodes1}>Nodes1</li> */}
+        
         <li className={activeTab === "Nodes" ? "active" : ""} onClick={handleNodes}>Nodes</li>
         <li className={activeTab === "Members" ? "active" : "" } onClick={handleMembers}>Members</li>
+        
         <li className={activeTab === "Materials" ? "active" : ""} onClick={handleMaterials}>Materials</li>
         <li className={activeTab === "Sections" ? "active" : "" } onClick={handleSections}>Sections</li>
       </ul>

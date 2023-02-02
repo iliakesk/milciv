@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import { TextField } from "./forms"
 import { createNode, deleteNode, createSupport, deleteSupport} from "../actions";
 import { connect } from "react-redux";
 // import {NavLink} from "react-router-dom";
@@ -7,12 +8,12 @@ import { connect } from "react-redux";
 // import { Spring, animated, useTransition } from 'react-spring'
 
 
-class Nodes extends Component {
+class Nodes1 extends Component {
   constructor(props) {
     super(props);
     this.handleCreateNode = this.handleCreateNode.bind(this);
-    this.handleDeleteNode = this.handleDeleteNode.bind(this);
-    this.handleNodeProperties = this.handleNodeProperties.bind(this);
+    // this.handleDeleteNode = this.handleDeleteNode.bind(this);
+    // this.renderInputNodes = this.renderInputNodes.bind(this);
     // this.handleKeyPress = this.handleKeyPress.bind(this);
 
   }
@@ -58,9 +59,10 @@ class Nodes extends Component {
   };
 
   handleCheckBoxes() {
-    let { full_support_fields, support_fields, support_checkboxes, displacement_fields, isSupport} = this.getAllFields();
+    let { full_support_fields, support_fields, displacement_fields, isSupport} = this.getAllFields();
     let allboxes = [...full_support_fields, ...support_fields, ...displacement_fields]
-    
+    allboxes.map(element => element.disabled=true)
+
     //eventListener for changing the returning value of checkbox and the enabled/disabled state of preceding text field
     full_support_fields.map((box, index) => {
       return  box.addEventListener('change', function (e) {
@@ -68,14 +70,9 @@ class Nodes extends Component {
                     e.target.value = "1";
                     support_fields[index].value="";
                     support_fields[index].disabled=true;
-                    support_fields[index].classList.remove("hover")
-                    displacement_fields[index].classList.remove("hover")
                   }else{
                     e.target.value = "";
                     support_fields[index].disabled=false;
-                    displacement_fields[index].disabled=false;
-                    support_fields[index].classList.add("hover")
-                    displacement_fields[index].classList.add("hover")
                   }
                 })
               })
@@ -83,28 +80,19 @@ class Nodes extends Component {
     full_support_fields.map((field) => {
         let event = new Event('change');
         return field.dispatchEvent(event);
-      }
-    )
-
-    allboxes.map(element => element.disabled=true)
-    support_fields.map(element => element.classList.remove("hover"))
-    displacement_fields.map(element => element.classList.remove("hover"))
+    }
+  )
 
     //eventListener for changing enabled/disabled state of preceding text and checkbox fields
     isSupport.addEventListener('change', function (e) {
       if (e.target.checked){
         e.target.value = "1";
-        full_support_fields.map(field => field.checked=true)
-        full_support_fields.map(field => field.disabled=false)
-        support_fields.map(element => element.classList.remove("hover"))
-        displacement_fields.map(element => element.classList.remove("hover"))
+        allboxes.map(box => box.disabled=false)
       }else{
         e.target.value = "";
         full_support_fields.map(field => field.checked=false)
         allboxes.map(box => box.value="")
         allboxes.map(box => box.disabled=true)
-        support_fields.map(element => element.classList.remove("hover"))
-        displacement_fields.map(element => element.classList.remove("hover"))
       }
     })
   }
@@ -133,13 +121,12 @@ class Nodes extends Component {
   getAllFields() {
     let coord_fields = ["xcoord", "ycoord", "zcoord"].map((field)=>document.getElementById(field))
     let full_support_fields = ["full-supx", "full-supy", "full-supz", "full-supRx", "full-supRy", "full-supRz"].map((field)=>document.getElementById(field))
-    let support_checkboxes = ["checkbox-supTx", "checkbox-supTy", "checkbox-supTz", "checkbox-supRx", "checkbox-supRy", "checkbox-supRz"].map((field)=>document.getElementById(field))
     let support_fields = ["supx", "supy", "supz", "supRx", "supRy", "supRz"].map((field)=>document.getElementById(field))
     let displacement_fields = ["dx", "dy", "dz", "rdx", "rdy", "rdz"].map((field)=>document.getElementById(field))
     let load_fields = ["Px", "Py", "Pz", "Mx", "My", "Mz"].map((field)=>document.getElementById(field))
     let isSupport = document.getElementById("is-support");
 
-    return {coord_fields, full_support_fields, support_fields, support_checkboxes, displacement_fields, load_fields, isSupport}
+    return {coord_fields, full_support_fields, support_fields, displacement_fields, load_fields, isSupport}
   }
 
 
@@ -239,61 +226,58 @@ class Nodes extends Component {
   }
 
   handleNodeProperties(){
-    try {
-      let node = document.getElementById("choose-node");
-      let coord_fields = ["xcoord", "ycoord", "zcoord"].map((field)=>document.getElementById(field))
-      coord_fields.map((field)=>field.value=this.props.nodes[node.value][field.id[0]])
-    }catch{
-      this.clearCoordFields()
-    }
-
+    console.log('implement function to show node properties')
   }
 
-  clearCoordFields(){
-    let coord_fields = ["xcoord", "ycoord", "zcoord"].map((field)=>document.getElementById(field))
-    coord_fields.map((field)=>field.value="")
-  }
+//   handleDeleteNode() {
+//     let node = document.getElementById("choose-node");
+//     if (node.value){
+//       this.props.deleteNode(node.value);
+//       this.props.deleteSupport(node.value);
+//     };
+//   }
 
-
-  handleDeleteNode() {
-    let node = document.getElementById("choose-node");
-    if (node.value){
-      this.props.deleteNode(node.value);
-      this.props.deleteSupport(node.value);
-      this.clearCoordFields()
-    };
-  }
-  
   renderListNodes() {
     return Object.keys(this.props.nodes).map((key) => {
       return <option key={key}>{key}</option>;
     });
   }
 
+  renderCheckBox(){
+    return (
+    <div class="check-input">
+      <input id="full-supx" type="checkbox" name="full-supx" value = "" />
+      <label for="full-supx">Fixed Tx</label>
+      <div className="checkbox"></div>
+    </div>
+    )
+  }
+
   renderInputNodes() {
     return (
-          <div className="form-nodes" id="nodes-form">
+          <div className="form" id="nodes-form">
             <div className="form-section form-section-top-buttons">
                   <label>Node:</label>
-                  <select className="hover" id="choose-node" type="text" name="choose-node" onChange={this.handleNodeProperties}> 
+                  <select id="choose-node" type="text" name="choose-node" onChange={this.handleNodeProperties}> 
                     <option></option>
                     {this.renderListNodes()}
                   </select>
                   <div className="node-top-buttons">
+                      
                       <input
-                      className="btn-modelling hover"
+                      className="btn-modelling"
                       type="button"
                       value="Edit"
                       onClick={this.handleEditNode}
                     ></input>
                       <input
-                      className="btn-modelling hover"
+                      className="btn-modelling"
                       type="button"
                       value="Delete"
                       onClick={this.handleDeleteNode}
                     ></input>
                     <input
-                      className="btn-modelling hover"
+                      className="btn-modelling"
                       type="button"
                       value="Add new"
                       //onClick={this.handleDeleteNode}
@@ -304,74 +288,59 @@ class Nodes extends Component {
             <div className="form-section form-section-coordinates">
                 <div className="form-subtitle">Coordinates</div>
                 <div className="coordinates">
+                    
                     <div>
                       <label for="xcoord">x:</label>
-                      <input className="hover" id="xcoord" type="text" name="xcoord" placeholder="m" required />
+                      <TextField  required="" id="xcoord" name="xcoord" placeholder="m "/>
                     </div>
                     <div>
                     <label for="ycoord">y:</label>
-                      <input className="hover" id="ycoord" type="text" name="ycoord" placeholder="m" />
+                      <TextField id="ycoord" name="ycoord" placeholder="m " />
                     </div>
                     <div>
                     <label for="zcoord">z:</label>
-                      <input className="hover" id="zcoord" type="text" name="zcoord" placeholder="m" />
+                      <TextField id="zcoord" name="zcoord" placeholder="m " />
                     </div>
                 </div>
-                <div id="test"></div>
             </div>
             <div className="form-section form-section-supports">
                 <div className="form-subtitle">Supports</div>
                   <div className="is-support">
-                    <input className="hover" id="is-support" type="checkbox" name="is-support" value = "" />
+                    <input id="is-support" type="checkbox" name="is-support" value = "" />
                     <label for="is-support">Support</label>
                   </div>
                   <div className="node-inputs">
                     <div className="node-inputs-section">
-                            <div class="check-input">
-                              <input  id="full-supx" type="checkbox" name="full-supx" value = "" />
-                              <label for="full-supx">Fixed Tx</label>
-                              <div id="checkbox-supTx" className="checkbox"></div>
-                            </div>
-                            <input className="hover" id="supx" type="text" name="supx" placeholder="KNm" />
                             
-                            <div class="check-input">
-                              <input id="full-supy" type="checkbox" name="full-supy" value = "" />
-                              <label for="full-supy">Fixed Ty</label>
-                              <div id="checkbox-supTy" className="checkbox"></div>
-                            </div>
-                            <input className="hover" id="supy" type="text" name="supy" placeholder="KNm" />
+                            <input id="supx" type="text" name="supx" placeholder="KNm " />
+                            {this.renderCheckBox()}
                             
-                            <div class="check-input">
-                              <input id="full-supz" type="checkbox" name="full-supz" value = "" />
-                              <label for="full-supz">Fixed Tz</label>
-                              <div id="checkbox-supTz" className="checkbox"></div>
-                            </div>
-                            <input className="hover" id="supz" type="text" name="supz" placeholder="KNm" />
+                            <input id="supy" type="text" name="supy" placeholder="KNm " />
+                            <input id="full-supy" type="checkbox" name="full-supy" value = "" />
+                            <label for="full-supy">Fixed Ty</label>
+                            <div className="checkbox"></div>
+                            
+                            <input id="supz" type="text" name="supz" placeholder="KNm " />
+                            <input id="full-supz" type="checkbox" name="full-supz" value = "" />
+                            <label for="full-supz">Fixed Tz</label>
+                            <div className="checkbox"></div>
                     </div>
                     <div className="node-inputs-section">
                         
+                            <input id="supRx" type="text" name="supRx" placeholder="KNrad? " />
+                            <input id="full-supRx" type="checkbox" name="full-supRx" value = "" />
+                            <label for="full-supRx">Fixed Rx</label>
+                            <div className="checkbox"></div>
                             
-                            <div class="check-input">
-                              <input id="full-supRx" type="checkbox" name="full-supRx" value = "" />
-                              <label for="full-supRx">Fixed Rx</label>
-                              <div id="checkbox-supRx" className="checkbox"></div>
-                            </div>
-                            <input className="hover" id="supRx" type="text" name="supRx" placeholder="KNrad?" />
-
-                            <div class="check-input">
-                              <input id="full-supRy" type="checkbox" name="full-supRy" value = "" />
-                              <label for="full-supRy">Fixed Ry</label>
-                              <div id="checkbox-supRy" className="checkbox"></div>
-                            </div>
-                            <input className="hover" id="supRy" type="text" name="supRy" placeholder="KNrad?" />
-
+                            <input id="supRy" type="text" name="supRy" placeholder="KNrad? " />
+                            <input id="full-supRy" type="checkbox" name="full-supRy" value = "" />
+                            <label for="full-supRy">Fixed Ry</label>
+                            <div className="checkbox"></div>
                             
-                            <div class="check-input">
-                              <input id="full-supRz" type="checkbox" name="full-supRz" value = "" />
-                              <label for="full-supRz">Fixed Rz</label>
-                              <div id="checkbox-supRz" className="checkbox"></div>
-                            </div>
-                            <input className="hover" id="supRz" type="text" name="supRz" placeholder="KNrad?" />
+                            <input id="supRz" type="text" name="supRz" placeholder="KNrad? " />
+                            <input id="full-supRz" type="checkbox" name="full-supRz" value = "" />
+                            <label for="full-supRz">Fixed Rz</label>
+                            <div className="checkbox"></div>
                     </div>
                   </div>
             </div>
@@ -382,25 +351,25 @@ class Nodes extends Component {
                     <div className="node-inputs-section">
                       
                       <label>Tx:</label>
-                      <input className="hover" id="dx" type="text" name="dx" placeholder="m" />
+                      <input id="dx" type="text" name="dx" placeholder="m " />
                   
                       <label>Ty:</label>
-                      <input className="hover" id="dy" type="text" name="dy" placeholder="m" />
+                      <input id="dy" type="text" name="dy" placeholder="m " />
                   
                       <label>Tz:</label>
-                      <input className="hover" id="dz" type="text" name="dz" placeholder="m" />
+                      <input id="dz" type="text" name="dz" placeholder="m " />
 
                     </div>
                     <div className="node-inputs-section">
                       
                       <label>Rx:</label>
-                      <input className="hover" id="rdx" type="text" name="rdx" placeholder="rad" />
+                      <input id="rdx" type="text" name="rdx" placeholder="rad " />
                   
                       <label>Ry:</label>
-                      <input className="hover" id="rdy" type="text" name="rdy" placeholder="rad" />
+                      <input id="rdy" type="text" name="rdy" placeholder="rad " />
                   
                       <label>Rz:</label>
-                      <input className="hover" id="rdz" type="text" name="rdz" placeholder="rad" />
+                      <input id="rdz" type="text" name="rdz" placeholder="rad " />
                         
                     </div>
                   </div>      
@@ -411,25 +380,25 @@ class Nodes extends Component {
                   <div className="node-inputs-section">
                         
                       <label>Px:</label>
-                      <input className="hover" id="Px" type="text" name="Px" placeholder="KN" />
+                      <input id="Px" type="text" name="Px" placeholder="KN " />
                   
                       <label>Py:</label>
-                      <input className="hover" id="Py" type="text" name="Py" placeholder="KN" />
+                      <input id="Py" type="text" name="Py" placeholder="KN " />
                   
                       <label>Pz:</label>
-                      <input className="hover" id="Pz" type="text" name="Pz" placeholder="KN" />
+                      <input id="Pz" type="text" name="Pz" placeholder="KN " />
                         
                     </div>
                     <div className="node-inputs-section">
                         
                       <label>Mx:</label>
-                      <input className="hover" id="Mx" type="text" name="Mx" placeholder="KNm" />
+                      <input id="Mx" type="text" name="Mx" placeholder="KNm " />
                   
                       <label>My:</label>
-                      <input className="hover" id="My" type="text" name="My" placeholder="KNm" />
+                      <input id="My" type="text" name="My" placeholder="KNm " />
                   
                       <label>Mz:</label>
-                      <input className="hover" id="Mz" type="text" name="Mz" placeholder="KNm" />
+                            <input id="Mz" type="text" name="Mz" placeholder="KNm " />
                         
                     </div>
                 </div>
@@ -458,5 +427,5 @@ const mapStateToProps = (state) => {
   return { nodes: state.nodes, supports:state.supports, lastNode:state.lastNode };
 };
 
-export default connect(mapStateToProps, { createNode, deleteNode, createSupport, deleteSupport })(Nodes);
+export default connect(mapStateToProps, { createNode, deleteNode, createSupport, deleteSupport })(Nodes1);
 
