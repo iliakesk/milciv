@@ -22,7 +22,8 @@
   --col-dark1:rgb(32, 32, 32);
   --col-dark2:rgb(21, 21, 22);
   --col-green:rgb(45, 104, 45);
-  --col-red:rgb(105, 41, 38);
+  --col-red1:rgb(105, 41, 38);
+  --col-red2:rgb(215, 97, 97);
   --col-orange: rgb(255, 168, 62);
 }
 /* *{
@@ -44,21 +45,22 @@
 .app{
   display:flex;
   flex-direction:column;
+  max-height:100vh;
 }
 
 .topbar{
-  flex:2 0 5rem;
+  /* flex:2 0 5rem; */
+  height:8vh;
   background-color:var(--col-light2);
 }
 
 .main-window{
   display:flex;
-  flex:7 1 2000px;
   overflow:hidden
 }
 
 .footer{
-  flex:1 0 2rem;
+  height:4vh;
   width:100%;
 }
 
@@ -81,6 +83,12 @@ textarea{
   background-color:var(--col-medium2);
   color:var(--col-light2);
 }
+
+label{
+  user-select: none;
+  -moz-user-select: none;
+}
+
 
 .hover:hover{
   background-color:var(--col-medium1);
@@ -208,7 +216,9 @@ input[type="text"]:focus-visible{
   background-color:var(--col-medium3);
   color:var(--col-light2);
   width:20%;
-  max-height:85vh
+  min-width:21em;
+  max-height:100%;
+
 }
 
 
@@ -293,6 +303,11 @@ input[type="text"]:focus-visible{
   margin-top:.4rem;
 }
 
+.form-section-top-buttons>select{
+
+  height:1.6em
+}
+
 .node-top-buttons{
   width:30%;
   margin-right:.4rem;
@@ -301,14 +316,15 @@ input[type="text"]:focus-visible{
   display:block;
   width:100%;
   text-align: center;
+  line-height:1.6em;
   margin:.2rem 0
 }
 
 #choose-node,
 #choose-member{
   margin:.5rem 0 0 .1rem;
-  width:3rem;
-  height:30%;
+  width:3em;
+  height:1.5em;
   text-align:center;
 }
 
@@ -352,6 +368,7 @@ input[type="text"]:focus-visible{
 }
 
 * input[type="checkbox"] + label{
+  
   background-color:var(--col-medium2);
   padding:.2em .6em;
   border-radius:3px;
@@ -362,8 +379,9 @@ input[type="text"]:focus-visible{
 }
 
 * input:checked + label{
-  background-color:var(--col-dark1);
-  color:var(--col-light2)
+  
+  background-color:var(--col-medium2);
+  color:var(--col-red2)
 }
 
 input[type=checkbox]{
@@ -378,7 +396,7 @@ input[type=checkbox]{
   appearance:none;
   background-color: var(--col-medium2);
   font: inherit;
-  color: var(--col-dark1);
+  color: var(--col-medium3);
   width: 2.3em;
   height: 1.2em;
   border: 0.01em solid var(--col-medium2rgba);
@@ -389,27 +407,27 @@ input[type=checkbox]{
 
 .node-inputs input[type=checkbox]:checked{
   place-content: center end;
-  color: var(--col-dark1);
+  color: var(--col-medium3);
 }
 
 .node-inputs input[type=checkbox]::before{
   content:"";
   display: inline-block;
   visibility:visible;
-  background-color: var(--col-light3);
+  background-color: var(--col-medium3);
   font: inherit;
-  color: var(--col-light3);
-  width: 1.2em;
-  height: 1.2em;
+  color: var(--col-medium3);
+  width: .8em;
+  height: .8em;
   border-radius: 5em;
-  transform: translate(-0.74em,-0.06em);
+  transform: translate(-0.52em,-0.06em);
   transition: 120ms transform ease-in-out;
   margin:.1rem 0 0 .5rem
 }
 
 .node-inputs input[type=checkbox]:checked::before{
-  background-color: var(--col-dark1);
-  transform: translate(0.1em,-0.06em);
+  background-color: var(--col-medium3);
+  transform: translate(-0.08em,-0.06em);
   transition: 120ms transform ease-in-out;
 }
 
@@ -420,7 +438,12 @@ input[type=checkbox]:enabled:hover{
 
 
 .form-section-supports label{
-  margin-left:.35rem;
+  width:100%;
+  margin-left:.5em;
+}
+
+.is-support label{
+  margin-left:-.8em;
 }
 
 /* mono gia displacements kai loads section */
@@ -474,11 +497,10 @@ form>input[type="submit"]{
 
 
 .canvas{
-  height:100%;
-  flex:5 1 auto;
+  /* width:100%; */
   background-color:var(--col-dark1);
-  overflow:hidden;
-  border-left:1px solid var(--col-medium2)
+  border-left:1px solid var(--col-medium2);
+  overflow:scroll
 }
 
 

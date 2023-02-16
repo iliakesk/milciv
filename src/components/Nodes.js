@@ -310,11 +310,11 @@ class Nodes extends Component {
                     </div>
                     <div>
                     <label for="ycoord">y:</label>
-                      <input className="hover" id="ycoord" type="text" name="ycoord" placeholder="m" />
+                      <input className="hover" id="ycoord" type="text" name="ycoord" placeholder="m" required />
                     </div>
                     <div>
                     <label for="zcoord">z:</label>
-                      <input className="hover" id="zcoord" type="text" name="zcoord" placeholder="m" />
+                      <input className="hover" id="zcoord" type="text" name="zcoord" placeholder="m" required />
                     </div>
                 </div>
                 <div id="test"></div>
